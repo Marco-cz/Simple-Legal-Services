@@ -1,0 +1,10 @@
+{
+  "name": "simple-legal-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for Simple Legal Services",
+  "scripts": {
+    "start": "npx --yes serve . -l 3030 --no-clipboard",
+    "dev": "npx --yes live-server --port=3030 --no-browser"
+  }
+}

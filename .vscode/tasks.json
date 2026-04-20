@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Serve site on :3030",
+			"type": "shell",
+			"command": "npx --yes serve . -l 3030 --no-clipboard",
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}
