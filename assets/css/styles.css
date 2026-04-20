@@ -284,10 +284,176 @@ a { color: inherit; text-decoration: none; }
 }
 .testimonial cite { color: var(--muted); font-size: 14px; font-style: normal; }
 
+/* Resources */
+.resources { background: var(--white); }
+.resources-layout {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px;
+  align-items: start;
+}
+.resources-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--green); margin-bottom: 20px;
+}
+
+/* Tools */
+.tool-list { display: flex; flex-direction: column; gap: 14px; }
+.tool-item {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--cream); padding: 16px 18px; border-radius: 12px;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tool-item:hover {
+  transform: translateX(4px);
+  border-color: var(--mint);
+  box-shadow: var(--shadow);
+}
+.tool-item.static { cursor: default; }
+.tool-icon {
+  width: 44px; height: 44px; min-width: 44px;
+  border-radius: 10px; color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+}
+.tool-icon svg { width: 22px; height: 22px; }
+.tool-icon.green { background: var(--green); }
+.tool-icon.orange { background: var(--orange); }
+.tool-icon.mint { background: var(--mint); color: var(--green); }
+.tool-icon.dark { background: var(--dark); }
+.tool-item strong { display: block; color: var(--green); font-size: 15px; margin-bottom: 2px; }
+.tool-item span { color: var(--muted); font-size: 13px; }
+
+/* FAQ */
+.faq-item {
+  background: var(--cream); border-radius: 10px;
+  margin-bottom: 10px; padding: 16px 20px;
+  border-left: 4px solid var(--mint);
+  transition: border-color 0.2s ease;
+}
+.faq-item[open] { border-left-color: var(--orange); }
+.faq-item summary {
+  font-weight: 600; color: var(--green); cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between; align-items: center;
+  font-size: 15px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; font-size: 22px; color: var(--orange);
+  transition: transform 0.2s ease; line-height: 1;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.6;
+}
+
 /* CTA */
 .cta {
   background: linear-gradient(135deg, var(--green) 0%, var(--green-d) 100%);
   color: var(--cream);
+}
+
+/* ROI Calculator */
+.roi {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-d) 100%);
+  color: var(--cream);
+}
+.roi-layout {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px;
+  align-items: stretch;
+}
+.roi-inputs, .roi-results {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.roi-results {
+  background: var(--cream);
+  color: var(--dark);
+  display: flex; flex-direction: column;
+}
+
+/* Inputs */
+.roi-field { margin-bottom: 26px; }
+.roi-field:last-child { margin-bottom: 0; }
+.roi-label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 10px;
+}
+.roi-label label { font-weight: 600; font-size: 14px; color: var(--cream); }
+.roi-label output {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--orange); font-weight: 700;
+}
+.roi-range {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: rgba(245,240,232,0.55); margin-top: 6px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px; border-radius: 999px;
+  background: rgba(255,255,255,0.15); outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--orange); border: 3px solid var(--cream);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--orange); border: 3px solid var(--cream);
+  cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Results */
+.roi-headline {
+  text-align: center; padding: 10px 0 24px;
+  border-bottom: 1px dashed rgba(45,74,53,0.2);
+  margin-bottom: 24px;
+}
+.roi-eyebrow {
+  display: block; text-transform: uppercase; letter-spacing: 2px;
+  font-size: 11px; font-weight: 700; color: var(--orange); margin-bottom: 6px;
+}
+.roi-headline strong {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 64px);
+  color: var(--green); display: block; line-height: 1;
+}
+
+.roi-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin-bottom: 24px;
+}
+.roi-stat {
+  background: var(--white); border-radius: 10px; padding: 16px;
+  border-left: 3px solid var(--mint);
+}
+.roi-stat em {
+  font-style: normal; text-transform: uppercase; letter-spacing: 1px;
+  font-size: 10px; color: var(--muted); font-weight: 600;
+}
+.roi-stat strong {
+  font-family: 'Playfair Display', serif;
+  display: block; font-size: 22px; color: var(--green); margin: 4px 0;
+}
+.roi-stat span { font-size: 12px; color: var(--muted); }
+
+.roi-cta {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;
+}
+.roi-cta .btn-outline-light {
+  border-color: var(--green); color: var(--green);
+}
+.roi-cta .btn-outline-light:hover { background: var(--green); color: var(--cream); }
+.roi-fineprint {
+  font-size: 11px; color: var(--muted);
+  margin-top: 14px; text-align: center;
 }
 .cta-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -364,6 +530,9 @@ a { color: inherit; text-decoration: none; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: 1fr; gap: 40px; }
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .resources-layout { grid-template-columns: 1fr; gap: 40px; }
+  .roi-layout { grid-template-columns: 1fr; }
+  .roi-stats { grid-template-columns: 1fr; }
   .nav-links, .nav-cta { display: none; }
   .nav-links.open {
     display: flex; flex-direction: column;
